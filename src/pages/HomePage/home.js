@@ -48,6 +48,17 @@ export const HomeStyled = styled.div`
     color: var(--grey-1);
   }
 
+  section h1 {
+    color: var(--grey-0);
+  }
+
+  section p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 24px;
+    color: var(--grey-0);
+  }
+
   section div {
     display: flex;
     justify-content: space-between;
