@@ -4,6 +4,7 @@ import { Title2Styled } from "../../styles/tipography.js";
 import { LoginStyled } from "./login.js";
 import { useForm } from "react-hook-form";
 import { api } from "../../services/api.js";
+import { toast } from "react-toastify";
 
 export const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -17,9 +18,10 @@ export const LoginPage = () => {
       });
       localStorage.setItem("@USER", JSON.stringify(data.user));
       localStorage.setItem("@TOKEN", data.token);
+      toast.success("Login realizado com sucesso");
       navigate("/home");
     } catch (error) {
-      console.error(error);
+      toast.error("E-mail ou senha incorretos");
     }
     reset();
   };

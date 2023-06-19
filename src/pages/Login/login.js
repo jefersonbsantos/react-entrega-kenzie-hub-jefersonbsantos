@@ -86,4 +86,9 @@ export const LoginStyled = styled.div`
     line-height: 21px;
     color: var(--grey-0);
   }
+
+  @media (min-width: 500px) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 `;

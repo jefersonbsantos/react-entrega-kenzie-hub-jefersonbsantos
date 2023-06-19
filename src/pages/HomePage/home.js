@@ -115,4 +115,9 @@ export const HomeStyled = styled.div`
     line-height: 22px;
     color: var(--grey-1);
   }
+
+  @media (min-width: 500px) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 `;

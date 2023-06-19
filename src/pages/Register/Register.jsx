@@ -5,6 +5,8 @@ import { RegisterStyled } from "./register.js";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerValidationSchema } from "./registerValidationSchema.js";
 import { api } from "../../services/api.js";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const RegisterPage = () => {
   const {
@@ -26,16 +28,21 @@ export const RegisterPage = () => {
         contact: formData.contact,
         course_module: formData.course_module,
       });
-      console.log(data);
+      toast.success("Cadastro realizado");
     } catch (error) {
-      console.error(error);
+      toast.error("Preencha os campos corretamente");
     }
   };
+
+  const navigate = useNavigate();
+
   return (
     <RegisterStyled>
       <header>
         <img src={Logo} alt="" />
-        <button className="header__button">Voltar</button>
+        <button className="header__button" onClick={() => navigate("/")}>
+          Voltar
+        </button>
       </header>
       <main>
         <section>
