@@ -3,29 +3,13 @@ import Logo from "../../assets/Logo.svg";
 import { Title2Styled } from "../../styles/tipography.js";
 import { LoginStyled } from "./login.js";
 import { useForm } from "react-hook-form";
-import { api } from "../../services/api.js";
-import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../providers/userContext.jsx";
 
 export const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
-  const navigate = useNavigate();
 
-  const submit = async (formData) => {
-    try {
-      const { data } = await api.post("/sessions", {
-        email: formData.email,
-        password: formData.password,
-      });
-      localStorage.setItem("@USER", JSON.stringify(data.user));
-      localStorage.setItem("@TOKEN", data.token);
-      toast.success("Login realizado com sucesso");
-      navigate("/home");
-    } catch (error) {
-      toast.error("E-mail ou senha incorretos");
-    }
-    reset();
-  };
-
+  const { submit } = useContext(UserContext);
   return (
     <LoginStyled>
       <header>

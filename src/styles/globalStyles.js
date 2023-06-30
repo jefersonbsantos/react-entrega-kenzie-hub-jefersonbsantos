@@ -13,8 +13,6 @@ export const GlobalStyle = createGlobalStyle`
     --success: #3FEB64;
     --negative: #EB3F5B;
 
-
-
     font-size: 62.5%;
   }
 

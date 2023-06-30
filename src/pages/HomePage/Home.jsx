@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Logo from "../../assets/Logo.svg";
-import { Title1Styled, Title2Styled } from "../../styles/tipography.js";
+import { Title2Styled } from "../../styles/tipography.js";
 import { HomeStyled } from "./home.js";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../providers/userContext.jsx";
+import { TechsContext } from "../../providers/techsContext";
+import { Techs } from "../../components/Techs/Techs.jsx";
+import { CreateTechs } from "../../components/CreateTech/CreateTech.jsx";
+import { UpdateDeleteTechs } from "../../components/UpdateDeleteTech/UpdateDeleteTech";
 
 export const HomePage = () => {
-  const response = JSON.parse(localStorage.getItem("@USER"));
   const navigate = useNavigate();
+  const { submit, user, userLogout } = useContext(UserContext);
+  const {
+    loading,
+    techsList,
+    createTechs,
+    isAdding,
+    setIsAdding,
+    setIsUpdating,
+    isUpdating,
+  } = useContext(TechsContext);
 
   return (
     <HomeStyled>
@@ -14,8 +28,7 @@ export const HomePage = () => {
         <img src={Logo} alt={Logo} />
         <button
           onClick={() => {
-            localStorage.clear();
-            navigate("/");
+            userLogout();
           }}
         >
           Sair
@@ -23,28 +36,31 @@ export const HomePage = () => {
       </header>
       <main>
         <section className="profile">
-          <p className="profile__name">Olá, {response.name} 🔥</p>
-          <p className="profile__module">{response.course_module}</p>
+          <p className="profile__name">Olá, {user?.name}</p>
+          <p className="profile__module">{user?.course_module}</p>
         </section>
         <section>
-          <Title1Styled>Que pena! Estamos em desenvolvimento :(</Title1Styled>
-          <p>
-            Nossa aplicação está em desenvolvimento, em breve teremos novidades.
-          </p>
-          {/* <div>
+          <div>
             <Title2Styled>Tecnologias</Title2Styled>
-            <button>+</button>
+            <button
+              onClick={() => {
+                setIsAdding(true);
+              }}
+            >
+              +
+            </button>
+            {isAdding ? <CreateTechs /> : null}
+            {isUpdating ? <UpdateDeleteTechs /> : null}
           </div>
           <ul>
-            <li>
-              <span className="tech__name">React JS</span>
-              <span className="tech__level">Intermediário</span>
-            </li>
-            <li>
-              <span className="tech__name">Next JS</span>
-              <span className="tech__level">Iniciante</span>
-            </li>
-          </ul> */}
+            {techsList.techs?.length !== 0 ? (
+              techsList.techs?.map((techs) => (
+                <Techs key={techs.id} techs={techs} />
+              ))
+            ) : (
+              <p>Não há tecnologias cadastradas.</p>
+            )}
+          </ul>
         </section>
       </main>
     </HomeStyled>
