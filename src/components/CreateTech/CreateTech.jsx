@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechsContext } from "../../providers/techsContext";
+import { CreateTechStyled } from "./createTech.js";
+import { Title2Styled } from "../../styles/tipography";
 
 export const CreateTechs = () => {
   const { createTechs, setIsAdding } = useContext(TechsContext);
@@ -11,10 +13,10 @@ export const CreateTechs = () => {
   } = useForm();
 
   return (
-    <div>
-      <div>
-        <div>
-          <h2>Cadastrar Tecnologia</h2>
+    <CreateTechStyled className="modalOverlay">
+      <div className="modalBox">
+        <div className="modalHeader">
+          <Title2Styled>Cadastrar Tecnologia</Title2Styled>
           <button onClick={() => setIsAdding(false)}>X</button>
         </div>
         <form onSubmit={handleSubmit(createTechs)}>
@@ -24,6 +26,7 @@ export const CreateTechs = () => {
             placeholder="Nome da Tecnologia"
             {...register("title")}
           />
+          <p>Selecionar status</p>
           <select name="" id="" {...register("status")}>
             <option value="Iniciante">Iniciante</option>
             <option value="Intermediário">Intermediário</option>
@@ -32,6 +35,6 @@ export const CreateTechs = () => {
           <button>Cadastrar Tecnologia</button>
         </form>
       </div>
-    </div>
+    </CreateTechStyled>
   );
 };

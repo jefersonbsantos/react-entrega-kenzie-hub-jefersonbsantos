@@ -49,15 +49,29 @@ export const TechsProvider = ({ children }) => {
   };
 
   const updateTechs = async (formData) => {
-    const techId = techsList.techs.id;
+    const techId = isUpdating.id;
     try {
       await api.put(
         `/users/techs/${techId}`,
+
         {
           status: formData.status,
         },
         authentication
       );
+      await api.get(`/users/${userId}`).then(({ data }) => {
+        setTechsList(data);
+      });
+    } catch (error) {}
+  };
+
+  const deleteTechs = async () => {
+    const techId = isUpdating.id;
+    try {
+      await api.delete(`/users/techs/${techId}`, authentication);
+      await api.get(`/users/${userId}`).then(({ data }) => {
+        setTechsList(data);
+      });
     } catch (error) {}
   };
 
@@ -72,6 +86,8 @@ export const TechsProvider = ({ children }) => {
         setTechsList,
         setIsUpdating,
         isUpdating,
+        updateTechs,
+        deleteTechs,
       }}
     >
       {children}

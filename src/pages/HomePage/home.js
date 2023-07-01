@@ -52,14 +52,14 @@ export const HomeStyled = styled.div`
     color: var(--grey-0);
   }
 
-  section p {
+  .noTechs {
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 24px;
     color: var(--grey-0);
   }
 
-  section div {
+  .addTech__div {
     display: flex;
     justify-content: space-between;
   }
@@ -68,7 +68,7 @@ export const HomeStyled = styled.div`
     color: var(--grey-0);
   }
 
-  section div button {
+  .addTech__button {
     width: 32px;
     height: 32px;
     background-color: var(--grey-3);

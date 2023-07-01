@@ -40,9 +40,10 @@ export const HomePage = () => {
           <p className="profile__module">{user?.course_module}</p>
         </section>
         <section>
-          <div>
+          <div className="addTech__div">
             <Title2Styled>Tecnologias</Title2Styled>
             <button
+              className="addTech__button"
               onClick={() => {
                 setIsAdding(true);
               }}
@@ -58,7 +59,7 @@ export const HomePage = () => {
                 <Techs key={techs.id} techs={techs} />
               ))
             ) : (
-              <p>Não há tecnologias cadastradas.</p>
+              <p className="noTechs">Não há tecnologias cadastradas.</p>
             )}
           </ul>
         </section>

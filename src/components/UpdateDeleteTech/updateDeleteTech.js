@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const CreateTechStyled = styled.div`
+export const UpdateDeleteTechStyled = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -15,6 +15,7 @@ export const CreateTechStyled = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    width: 400px;
     max-width: 400px;
     height: max-content;
     border-radius: 4px;
@@ -22,7 +23,7 @@ export const CreateTechStyled = styled.div`
     box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
   }
 
-  .modalHeader {
+  .modalBox__header {
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -32,12 +33,12 @@ export const CreateTechStyled = styled.div`
     padding-inline: 20px;
   }
 
-  .modalHeader button {
+  .modalBox__header button {
     background-color: transparent;
     border: none;
-    color: var(--grey-1);
-    font-weight: 600;
     font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--grey-1);
   }
 
   form {
@@ -82,14 +83,34 @@ export const CreateTechStyled = styled.div`
     color: var(--grey-0);
   }
 
-  form button {
-    width: 100%;
+  form div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  form div button {
+    width: 200px;
     height: 48px;
     border-radius: 4px;
-    border: 1px solid var(--color-primary);
-    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary-negative);
+    background-color: var(--color-primary-negative);
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--grey-0);
+  }
+
+  form div span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid var(--grey-1);
+    background-color: var(--grey-1);
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: var(--grey-0);
+    cursor: pointer;
   }
 `;

@@ -6,7 +6,7 @@ import { ProtectedRoutes } from "../ProtectedRoutes/ProtectedRoutes.jsx";
 import { PublicRoutes } from "../PublicRoutes/PublicRoutes.jsx";
 import { TechsProvider } from "../providers/techsContext.jsx";
 
-export const RoutesMain = () => {
+export const RoutesMain = ({ techId, setTechId }) => {
   return (
     <Routes>
       <Route element={<PublicRoutes />}>

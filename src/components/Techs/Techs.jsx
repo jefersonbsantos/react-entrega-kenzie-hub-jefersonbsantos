@@ -5,7 +5,11 @@ export const Techs = ({ techs }) => {
   const { setIsUpdating } = useContext(TechsContext);
 
   return (
-    <li onClick={() => setIsUpdating(true)}>
+    <li
+      onClick={() => {
+        setIsUpdating(techs);
+      }}
+    >
       <span className="tech__name">{techs.title}</span>
       <span className="tech__level">{techs.status}</span>
     </li>
