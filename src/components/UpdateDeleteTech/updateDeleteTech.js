@@ -15,7 +15,7 @@ export const UpdateDeleteTechStyled = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 400px;
+    width: 280px;
     max-width: 400px;
     height: max-content;
     border-radius: 4px;
@@ -42,7 +42,7 @@ export const UpdateDeleteTechStyled = styled.div`
   }
 
   form {
-    width: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -56,7 +56,7 @@ export const UpdateDeleteTechStyled = styled.div`
   }
 
   form input {
-    width: 325px;
+    width: 85%;
     height: 48px;
     padding-inline: 16px;
     border-radius: 4px;
@@ -65,6 +65,7 @@ export const UpdateDeleteTechStyled = styled.div`
     font-size: 1.6rem;
     font-weight: 400;
     color: var(--grey-0);
+    opacity: 0.5;
   }
   form input::placeholder {
     color: var(--grey-0);
@@ -72,7 +73,7 @@ export const UpdateDeleteTechStyled = styled.div`
   }
 
   form select {
-    width: 360px;
+    width: 100%;
     height: 48px;
     padding-inline: 16px;
     border-radius: 4px;
@@ -99,6 +100,10 @@ export const UpdateDeleteTechStyled = styled.div`
     color: var(--grey-0);
   }
 
+  form div button:hover {
+    background-color: var(--color-primary);
+  }
+
   form div span {
     display: flex;
     justify-content: center;
@@ -112,5 +117,18 @@ export const UpdateDeleteTechStyled = styled.div`
     font-size: 1.6rem;
     color: var(--grey-0);
     cursor: pointer;
+  }
+
+  form div span:hover {
+    background-color: var(--grey-2);
+  }
+
+  @media (min-width: 500px) {
+    .modalBox {
+      width: 400px;
+    }
+    form input {
+      width: 90%;
+    }
   }
 `;

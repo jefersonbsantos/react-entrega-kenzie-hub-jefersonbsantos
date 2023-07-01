@@ -24,6 +24,10 @@ export const HomeStyled = styled.div`
     line-height: 28px;
   }
 
+  header button:hover {
+    background-color: var(--grey-2);
+  }
+
   .profile {
     display: flex;
     flex-direction: column;
@@ -81,10 +85,15 @@ export const HomeStyled = styled.div`
     margin-bottom: 30px;
   }
 
+  .addTech__button:hover {
+    background-color: var(--grey-2);
+  }
+
   section ul {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: max-content;
+    max-height: 700px;
     background-color: var(--grey-3);
     border-radius: 4px;
     padding: 10px;
@@ -117,7 +126,11 @@ export const HomeStyled = styled.div`
   }
 
   @media (min-width: 500px) {
-    max-width: 400px;
+    max-width: 780px;
     margin: 0 auto;
+    justify-content: flex-start;
+    header {
+      margin-top: 30px;
+    }
   }
 `;

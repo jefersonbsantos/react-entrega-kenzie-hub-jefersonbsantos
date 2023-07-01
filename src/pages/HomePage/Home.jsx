@@ -7,7 +7,7 @@ import { UserContext } from "../../providers/userContext.jsx";
 import { TechsContext } from "../../providers/techsContext";
 import { Techs } from "../../components/Techs/Techs.jsx";
 import { CreateTechs } from "../../components/CreateTech/CreateTech.jsx";
-import { UpdateDeleteTechs } from "../../components/UpdateDeleteTech/UpdateDeleteTech";
+import { UpdateDeleteTechs } from "../../components/UpdateDeleteTech/UpdateDeleteTech.jsx";
 
 export const HomePage = () => {
   const navigate = useNavigate();

@@ -15,6 +15,7 @@ export const CreateTechStyled = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    width: 280px;
     max-width: 400px;
     height: max-content;
     border-radius: 4px;
@@ -41,7 +42,7 @@ export const CreateTechStyled = styled.div`
   }
 
   form {
-    width: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -55,7 +56,7 @@ export const CreateTechStyled = styled.div`
   }
 
   form input {
-    width: 325px;
+    width: 85%;
     height: 48px;
     padding-inline: 16px;
     border-radius: 4px;
@@ -71,7 +72,7 @@ export const CreateTechStyled = styled.div`
   }
 
   form select {
-    width: 360px;
+    width: 100%;
     height: 48px;
     padding-inline: 16px;
     border-radius: 4px;
@@ -91,5 +92,18 @@ export const CreateTechStyled = styled.div`
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--grey-0);
+  }
+
+  form button:hover {
+    background-color: var(--color-primary-focus);
+  }
+
+  @media (min-width: 500px) {
+    .modalBox {
+      width: 400px;
+    }
+    form input {
+      width: 90%;
+    }
   }
 `;
